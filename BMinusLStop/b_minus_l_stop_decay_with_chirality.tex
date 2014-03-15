@@ -124,4 +124,95 @@
     \end{center}
   \end{frame}
 
+
+
+
+
+
+
+
+  % ----------------------------------------------------------------------------
+  \begin{frame}[plain]
+    \begin{center}
+      \begin{tikzpicture}[scale=1.3]
+        % incoming particle nodes
+        \node[void] (in) at (-1.0,0.0) [ label={ [label distance=0pt]+180:{ $\tilde{\mathrm{t}}_{\mathrm{R}}$ } } ]{} {};
+
+        % vertices
+        \node[void] (vert_1) at (0.0, 0.0) {};
+        \node[void] (vert_2) at (1.5,-1.0) {};
+        \node[void] (vert_3) at (3.0,-1.0) {};
+        \node[blob] (vert_4) at (0.75,-0.5) [label={[label distance=-5pt]30:{$m_{\tau}$}}]{} {};
+
+        % outgoing particle nodes
+        \node[void] (out_u)   at (3.0,+2.0) [label={[label distance=0pt]+0:{$\mathrm{b}_{\mathrm{L}}$}}]{} {};
+        \node[void] (out_d_1) at (3.0,-2.5) [label={[label distance=0pt]+0:{$\nu_{L}^{\dagger}$}}]{} {};
+        \node[void] (out_d_2) at (4.5,-2.5) [label={[label distance=0pt]+0:{$\nu_{\mathrm{L}}$}}]{} {};
+        \node[void] (out_d_3) at (5.0,-1.0) [label={[label distance=0pt]+0:{$\ell^{\dagger}_{\mathrm{L}}$}}]{} {};
+
+        % Input stop
+        \draw[spin0] (in) -- (vert_1);
+
+        % outgoing b quark
+        % \draw[fermion] (vert_1) -- node [label={[label distance=0pt]+110:{$\mathrm{b}_{\mathrm{R}}$}}]{} (vert_4);
+        \draw[fermion] (vert_1) -- (out_u);
+
+        % tau lepton from stop
+        \draw[fermion] (vert_4) -- node [label={[label distance=5]-120:{$\tau_{\mathrm{R}}^{\dagger}$}}]{} (vert_1);
+        \draw[fermion] (vert_2) -- node [label={[label distance=5]-120:{$\tau_{\mathrm{L}}^{\dagger}$}}]{} (vert_4);
+
+        % tau decay
+        \draw[fermion] (out_d_1) -- (vert_2);
+        \draw[photon] (vert_2) -- node [label={[label distance=5]90:{$\text{W}^{+}$}}]{} (vert_3);
+
+        % W+ boson decay
+        \draw[fermion] (vert_3) -- (out_d_2);
+        \draw[fermion] (out_d_3) -- (vert_3);
+
+      \end{tikzpicture}
+    \end{center}
+  \end{frame}
+
+  % ----------------------------------------------------------------------------
+  \begin{frame}[plain]
+    \begin{center}
+      \begin{tikzpicture}[scale=1.3]
+        % incoming particle nodes
+        \node[void] (in) at (-1.0,0.0) [ label={ [label distance=0pt]+180:{ $\tilde{\mathrm{t}}_{\mathrm{R}}^{*}$ } } ]{} {};
+
+        % vertices
+        \node[void] (vert_1) at (0.0, 0.0) {};
+        \node[void] (vert_2) at (1.5,-1.0) {};
+        \node[void] (vert_3) at (3.0,-1.0) {};
+        \node[blob] (vert_4) at (0.75,-0.5) [label={[label distance=-5pt]30:{$m_{\tau}$}}]{} {};
+
+        % outgoing particle nodes
+        \node[void] (out_u)   at (3.0,+2.0) [label={[label distance=0pt]+0:{$\mathrm{b}_{\mathrm{L}}^{\dagger}$}}]{} {};
+        \node[void] (out_d_1) at (3.0,-2.5) [label={[label distance=0pt]+0:{$\nu_{L}$}}]{} {};
+        \node[void] (out_d_2) at (4.5,-2.5) [label={[label distance=0pt]+0:{$\nu_{\mathrm{L}}^{\dagger}$}}]{} {};
+        \node[void] (out_d_3) at (5.0,-1.0) [label={[label distance=0pt]+0:{$\ell_{\mathrm{L}}$}}]{} {};
+
+        % Input stop
+        \draw[spin0] (in) -- (vert_1);
+
+        % outgoing b quark
+        % \draw[fermion] (vert_4) -- node [label={[label distance=0pt]+110:{$\mathrm{b}_{\mathrm{R}}^{\dagger}$}}]{} (vert_1);
+        \draw[fermion] (out_u) -- (vert_1);
+
+        % tau lepton from stop
+        \draw[fermion] (vert_1) -- node [label={[label distance=5]-120:{$\tau_{\mathrm{R}}$}}]{} (vert_4);
+        \draw[fermion] (vert_4) -- node [label={[label distance=5]-120:{$\tau_{\mathrm{L}}$}}]{} (vert_2);
+
+        % tau decay
+        \draw[fermion] (vert_2) -- (out_d_1);
+        \draw[photon] (vert_2) -- node [label={[label distance=5]90:{$\text{W}^{-}$}}]{} (vert_3);
+
+        % W+ boson decay
+        \draw[fermion] (out_d_2) -- (vert_3);
+        \draw[fermion] (vert_3) -- (out_d_3);
+
+      \end{tikzpicture}
+    \end{center}
+  \end{frame}
+
 \end{document}
